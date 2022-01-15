@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Ruby裡的字串與符號-Symbol | 唯一進步的地方, 大概只有體重</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="淺談在Ruby裡的字串與符號，首先我們先看看字串的樣字 字串物件的組合是由一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。 再來看看 Symbol一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。 那字串與符號的不同呢？ 字串是可以更改內容的，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ruby裡的字串與符號-Symbol">
+<meta property="og:url" content="http://example.com/2020/05/07/Ruby%E8%A3%A1%E7%9A%84%E5%AD%97%E4%B8%B2%E8%88%87%E7%AC%A6%E8%99%9F-Symbol/index.html">
+<meta property="og:site_name" content="唯一進步的地方, 大概只有體重">
+<meta property="og:description" content="淺談在Ruby裡的字串與符號，首先我們先看看字串的樣字 字串物件的組合是由一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。 再來看看 Symbol一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。 那字串與符號的不同呢？ 字串是可以更改內容的，">
+<meta property="og:locale">
+<meta property="og:image" content="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png">
+<meta property="og:image" content="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png">
+<meta property="og:image" content="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png">
+<meta property="og:image" content="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png">
+<meta property="og:image" content="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png">
+<meta property="og:image" content="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png">
+<meta property="article:published_time" content="2020-05-06T17:04:08.000Z">
+<meta property="article:modified_time" content="2022-01-15T07:34:01.604Z">
+<meta property="article:author" content="Willy Chang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png">
+  
+    <link rel="alternate" href="/atom.xml" title="唯一進步的地方, 大概只有體重" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">唯一進步的地方, 大概只有體重</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Ruby裡的字串與符號-Symbol" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/07/Ruby%E8%A3%A1%E7%9A%84%E5%AD%97%E4%B8%B2%E8%88%87%E7%AC%A6%E8%99%9F-Symbol/" class="article-date">
+  <time class="dt-published" datetime="2020-05-06T17:04:08.000Z" itemprop="datePublished">2020-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Ruby裡的字串與符號-Symbol
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>淺談在Ruby裡的字串與符號，首先我們先看看字串的樣字</p>
+<p>字串物件的組合是由<br><img src="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png"><br>一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。</p>
+<p>再來看看 Symbol<br><img src="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png"><br>一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。</p>
+<p>那字串與符號的不同呢？</p>
+<p>字串是可以更改內容的，而符號_(Symbol)_是不能的!!! (以下就直接通稱符號</p>
+<p>因為這時候符號已經變成了有名字的字串了。</p>
+<p>就像你的名字可以更改嗎？好啦其實可以，去戶政事務所。</p>
+<p>舉例看看：好比今天棒球的本壘板，它已經定義叫做本壘板了，不可能更改叫一壘或二壘吧。</p>
+<p>我們也可以用.class來看這時候變數是什麼個物件類別。<br><img src="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png"><br><img src="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png"><br>符號類別字串物件類別可以看得出來他們的類別不一樣吧 😃</p>
+<p>當然它們也有別的不同之處，物件的ID位置(身分證字號)，我們可以用</p>
+<p>.object_id 來查詢它們所在的ID位置。<br><img src="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png"><br>有看到右邊一串一串的亂碼嗎？那就是willy這個字串的ID位置，每次輸入每次的位置不同，因為每次查詢都會在建立一個新字串，才會有不同的ID位置。<br><img src="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png"><br>但符號的ID位置是不會改變的，因為ID位置如果相同的話，表示它們都是同一個物件，這樣下次需要這個符號時，記憶體就不用在新增一份，直接從記憶體取出，相對的符號也較省記憶體空間。</p>
+<p>字串及 符號(Symbol) 類別都有提供一些方法可以互相轉換，</p>
+<p>我們可以用:</p>
+<p>字串轉符號使用:to_sym</p>
+<p>符號轉字串使用:to_s</p>
+<p>那我們的使用時機呢？可以用在Hash裡的key:</p>
+<p>因為它能更快的被找到。</p>
+<p>總結：</p>
+<p>字串與符號同樣是一個物件，但類別不同，使用方法也不同。</p>
+<p>但我覺得符號的用途比較像是更明確的表現物件給人的意思，</p>
+<p>因為它的內容是不可以改變的！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/07/Ruby%E8%A3%A1%E7%9A%84%E5%AD%97%E4%B8%B2%E8%88%87%E7%AC%A6%E8%99%9F-Symbol/" data-id="ckyfilfz5000c6m9k4ylxfig5" data-title="Ruby裡的字串與符號-Symbol" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/07/%E9%A1%9E%E5%88%A5%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E7%89%A9%E4%BB%B6%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          類別是什麼？物件是什麼？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/07/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Rails-追code-小技巧</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/">Rails sidekiq 指定 vm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/11/ActiveRecord-Store/">ActiveRecord::Store</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/">2021 期望與 2020 回顧</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/01/Rails-hotwire/">Rails hotwire</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/">Ruby on Rails, Rspec use webmock gem</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Willy Chang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

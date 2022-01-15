@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Rails-super-起飛摟 | 唯一進步的地方, 大概只有體重</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="趁著還有想法的時候，趕快寫下來。因為專案的關係，用到了class_eval and super。相信大家對super不陌生，可能常看到吧。 super是什麼呢？It[Super] calls a method on the parent class with the same name as the method that calls super.它是當我們想要使用一個類別(class)中的特定方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rails-super-起飛摟">
+<meta property="og:url" content="http://example.com/2020/05/07/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/index.html">
+<meta property="og:site_name" content="唯一進步的地方, 大概只有體重">
+<meta property="og:description" content="趁著還有想法的時候，趕快寫下來。因為專案的關係，用到了class_eval and super。相信大家對super不陌生，可能常看到吧。 super是什麼呢？It[Super] calls a method on the parent class with the same name as the method that calls super.它是當我們想要使用一個類別(class)中的特定方">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-05-06T17:06:46.000Z">
+<meta property="article:modified_time" content="2022-01-15T07:34:01.603Z">
+<meta property="article:author" content="Willy Chang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="唯一進步的地方, 大概只有體重" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">唯一進步的地方, 大概只有體重</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Rails-super-起飛摟" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/07/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/" class="article-date">
+  <time class="dt-published" datetime="2020-05-06T17:06:46.000Z" itemprop="datePublished">2020-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Rails-super-起飛摟
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>趁著還有想法的時候，趕快寫下來。<br>因為專案的關係，用到了<code>class_eval</code> and <code>super</code>。<br>相信大家對<code>super</code>不陌生，可能常看到吧。</p>
+<p><code>super</code>是什麼呢？<br><em>It[Super] calls a method on the parent class with the same name as the method that calls super.</em><br>它是當我們想要使用一個類別(class)中的特定方法，但又想保留它父層原有同名方法裡的內容。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    p <span class="string">"哈摟"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &lt; A</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">B.new.hi</span><br><span class="line"> =&gt; <span class="string">"哈摟"</span></span><br></pre></td></tr></table></figure>
+
+<p>A class裡面定義了一個<code>hi</code> method，B class繼承A class，同時B class裡面也定義了<code>hi</code>，在裡面用了super，當B class使用了<code>hi</code>方法時，也一併把B class裡的方法帶到父層A class裡的<code>hi</code> method裡執行。但上面的範例根本不用這樣做，因為既然是繼承了，它根本不用在定義一個同名方法，直接使用<code>B.new.hi</code>也會是一樣的結果。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    p <span class="string">"哈摟"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &lt; A</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    p <span class="string">"大家好"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">B.new.hi</span><br><span class="line">=&gt; </span><br><span class="line"><span class="string">"哈摟"</span></span><br><span class="line"><span class="string">"大家好"</span></span><br></pre></td></tr></table></figure>
+
+<p>雖然範例不是很好，但我這次在B class加了”大家好”，B class <code>hi</code> method，就把它帶到父層A class <code>hi</code> method一起執行了。</p>
+<p>那這次專案裡踩到的雷，是我們使用了<code>class_eval</code>這個method(可自行google or 我哪天會寫一篇)<br>我需要從原本的<code>index</code>繼續延伸下去，所以我以為在<code>class_eval</code>裡用<code>super</code>就能繼續在<code>index</code>寫下去。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xxxController.class_eval <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    <span class="comment">#以下我要執行得代碼</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>但會噴<br><em>NoMethodError (super: no superclass method <code>index</code>)</em></p>
+<p>因為這時<code>xxxController.class_eval</code>就是它自己，所以在延伸<code>index</code>時沒有super可用(除非它的父層有<code>index</code>)。<br>我用<code>ancestors</code>來看看這個<code>controller</code>的祖先們是誰，看到以下這些，感覺就沒有繼承<code>index</code>難怪會錯。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Spree::BaseController,</span><br><span class="line">Spree::ViewContext,</span><br><span class="line">ActionController::Base,</span><br><span class="line">Devise::OmniAuth::UrlHelpers,</span><br><span class="line">Devise::Controllers::UrlHelpers,</span><br><span class="line">Devise::Controllers::Helpers,</span><br><span class="line">Devise::Controllers::StoreLocation,</span><br><span class="line">Devise::Controllers::SignInOut,</span><br><span class="line">Turbolinks::Redirection,</span><br><span class="line">Turbolinks::Controller,</span><br><span class="line">Rollbar::Rails::ControllerMethods,</span><br><span class="line">Rollbar::RequestDataExtractor,</span><br><span class="line">ActiveRecord::Railties::ControllerRuntime,</span><br><span class="line">ActionDispatch::Routing::RouteSet::MountedHelpers,</span><br><span class="line">VersionCake::ControllerAdditions,</span><br><span class="line">ActionController::RespondWith,</span><br><span class="line">CanCan::ControllerAdditions,</span><br><span class="line">ActionController::ParamsWrapper,</span><br><span class="line">ActionController::Instrumentation,</span><br><span class="line">ActionController::Rescue</span><br></pre></td></tr></table></figure>
+
+<p>這時就可以用<code>concern module</code>來<code>include</code>。就可以嘍。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">Hello</span></span></span><br><span class="line">  extend ActiveSupport::Concern</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    respond_to <span class="keyword">do</span> <span class="params">|f|</span></span><br><span class="line">      f.html</span><br><span class="line">      f.xlsx <span class="keyword">do</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"></span><br><span class="line">---我是分隔線</span><br><span class="line"></span><br><span class="line">xxxController.class_eval <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">include</span> Hello</span><br><span class="line">  ...</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>-W</p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/07/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/" data-id="ckyfilfz300086m9k4h253lcn" data-title="Rails-super-起飛摟" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/01/rails-%E7%B6%A0%E7%95%8C%E5%8F%83%E6%95%B8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Rails 綠界參數
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">單一表格繼承與多型關聯</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/">Rails sidekiq 指定 vm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/11/ActiveRecord-Store/">ActiveRecord::Store</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/">2021 期望與 2020 回顧</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/01/Rails-hotwire/">Rails hotwire</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/">Ruby on Rails, Rspec use webmock gem</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Willy Chang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

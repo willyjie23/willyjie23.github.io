@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>單一表格繼承與多型關聯 | 唯一進步的地方, 大概只有體重</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="我要活下去!!!以前不敢問問題，到現在看到什麼就想問，根本忘了先_查資料_，再發問。 問問題前，應該先查資料，再把不了解的濃縮成人話(當然這很難！！！ 難的地方不是發問，而是要很讓人聽懂。 以下是得到的解答，透過我的大腦，解析出的人話(？或許不對，不清楚，再麻煩大家包涵或者直接幹瞧我喔^_&lt; 單一表格繼承STI(Single-table inheritance)如何將物件導向中的繼承概念，對">
+<meta property="og:type" content="article">
+<meta property="og:title" content="單一表格繼承與多型關聯">
+<meta property="og:url" content="http://example.com/2020/05/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/index.html">
+<meta property="og:site_name" content="唯一進步的地方, 大概只有體重">
+<meta property="og:description" content="我要活下去!!!以前不敢問問題，到現在看到什麼就想問，根本忘了先_查資料_，再發問。 問問題前，應該先查資料，再把不了解的濃縮成人話(當然這很難！！！ 難的地方不是發問，而是要很讓人聽懂。 以下是得到的解答，透過我的大腦，解析出的人話(？或許不對，不清楚，再麻煩大家包涵或者直接幹瞧我喔^_&lt; 單一表格繼承STI(Single-table inheritance)如何將物件導向中的繼承概念，對">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-05-06T17:05:56.000Z">
+<meta property="article:modified_time" content="2022-01-15T07:34:01.605Z">
+<meta property="article:author" content="Willy Chang">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="唯一進步的地方, 大概只有體重" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">唯一進步的地方, 大概只有體重</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-單一表格繼承與多型關聯" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/" class="article-date">
+  <time class="dt-published" datetime="2020-05-06T17:05:56.000Z" itemprop="datePublished">2020-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      單一表格繼承與多型關聯
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="我要活下去"><a href="#我要活下去" class="headerlink" title="我要活下去!!!"></a><a href="#%E6%88%91%E8%A6%81%E6%B4%BB%E4%B8%8B%E5%8E%BB" title="我要活下去!!!"></a>我要活下去!!!</h1><p>以前不敢問問題，到現在看到什麼就想問，根本忘了先_查資料_，再發問。</p>
+<p>問問題前，應該先查資料，再把不了解的濃縮成人話(當然這很難！！！</p>
+<p><strong>難的地方不是發問，而是要很讓人聽懂。</strong></p>
+<p>以下是得到的解答，透過我的大腦，解析出的人話(？<br>或許不對，不清楚，再麻煩大家包涵或者直接幹瞧我喔^_&lt;</p>
+<h2 id="單一表格繼承STI-Single-table-inheritance"><a href="#單一表格繼承STI-Single-table-inheritance" class="headerlink" title="單一表格繼承STI(Single-table inheritance)"></a><a href="#%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BFSTI-Single-table-inheritance" title="單一表格繼承STI(Single-table inheritance)"></a>單一表格繼承STI(Single-table inheritance)</h2><p><strong>如何將物件導向中的繼承概念，對應到關聯式資料庫的設計，是個大哉問。Rails內建了其中最簡單的一個解法，只用一個資料表儲存繼承體系中的物件，搭配一個<code>type</code>欄位用來指名這筆資料的類別名稱。要開啟STI功能，依照慣例只要有一個欄位叫做<code>type</code>，型態字串即可</strong></p>
+<p>比方說：我有一個 <code>Animal Model</code>，為了要有繼承功能，我們新增 <code>type</code>這個欄位。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span>
+<span class="line">  create_table <span class="symbol">:animals</span> <span class="keyword">do</span> <span class="params">|t|</span></span>
+<span class="line">    t.string <span class="symbol">:name</span></span>
+<span class="line">    t.string <span class="symbol">:type</span></span>
+<span class="line">    t.timestamps <span class="symbol">null:</span> <span class="literal">false</span></span>
+<span class="line">  <span class="keyword">end</span></span>
+<span class="line"><span class="keyword">end</span></span>
+</pre></td></tr></table></figure>
+
+<p>那要被繼承的 Dog、Cat兩個 Model就不用在建立表格欄位了。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> &lt; ActiveRecord::Base</span></span>
+<span class="line"><span class="keyword">end</span></span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> &lt; Animal</span></span>
+<span class="line"><span class="keyword">end</span></span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> &lt; Animal</span></span>
+<span class="line"><span class="keyword">end</span></span>
+</pre></td></tr></table></figure>
+
+<p>這時候他們都繼承了Animal這個爸爸，爸爸有什麼，他們就有什麼了。<br>但缺點就是，爸爸有的，你不一定需要，但你還是得擁有那些欄位。<br>如果要關閉的話就在爸爸身上加上 <code>self.abstract_class = true</code></p>
+<h2 id="多型關聯-Polymorphic-Associations"><a href="#多型關聯-Polymorphic-Associations" class="headerlink" title="多型關聯(Polymorphic Associations)"></a><a href="#%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF-Polymorphic-Associations" title="多型關聯(Polymorphic Associations)"></a>多型關聯(Polymorphic Associations)</h2><p><strong>多型關連(Polymorphic Associations)可以讓一個 Model 不一定關連到某一個特定的 Model，秘訣在於除了整數的_id外部鍵之外，再加一個字串的_type欄位說明是哪一種Model。</strong></p>
+<p>多型關聯，當你有某種事情需求，已經有Model在做那件事情時。<br>我在其他Model，也想使用到那件事情時，我就不用在另外建立Model，來做一樣的事情了。</p>
+<p><em>以上想用自己的話表達簡單一點，但覺得太攏統，太模糊了</em></p>
+<p><em>以下引用文件</em></p>
+<p>例如一個Comment model，我們可以透過多型關連讓它belongs_to到各種不同的 Model上，假設我們已經有了Article與Photo這兩個Model，然後我們希望這兩個Model都可以被留言。不用多型關連的話，你得分別建立ArticleComment和PhotoComment的model。用多型關連的話，無論有多少種需要被留言的Model，只需要一個Comment model即可：</p>
+<p><code>rails g model comment content:text commentable_id:integer commentable_type</code></p>
+<p>產生出</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateComments</span> &lt; ActiveRecord::Migration[5.1]</span></span>
+<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span>
+<span class="line">    create_table <span class="symbol">:comments</span> <span class="keyword">do</span> <span class="params">|t|</span></span>
+<span class="line">      t.text <span class="symbol">:content</span></span>
+<span class="line">      t.integer <span class="symbol">:commentable_id</span></span>
+<span class="line">      t.string <span class="symbol">:commentable_type</span></span>
+<span class="line"></span>
+<span class="line">      t.timestamps</span>
+<span class="line">    <span class="keyword">end</span></span>
+<span class="line">  <span class="keyword">end</span></span>
+<span class="line"><span class="keyword">end</span></span>
+</pre></td></tr></table></figure>
+
+<p>這個Migration檔案中，我們用content這個欄位來儲存留言的內容，commentable_id用來儲存被留言的物件的id而commentable_type則用來儲存被留言物件的種類，以這個例子來說被留言的對象就是Article與Photo這兩種Model，這個Migration檔案也可以改寫成下面這樣：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateComments</span> &lt; ActiveRecord::Migration[5.1]</span></span>
+<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span>
+<span class="line">    create_table <span class="symbol">:comments</span> <span class="keyword">do</span> <span class="params">|t|</span></span>
+<span class="line">      t.text <span class="symbol">:content</span></span>
+<span class="line">      t.belongs_to <span class="symbol">:commentable</span>, <span class="symbol">:polymorphic</span> =&gt; <span class="literal">true</span></span>
+<span class="line">      <span class="comment">#同時會幫你產生出[:commentable_id, :commentable_type]</span></span>
+<span class="line"></span>
+<span class="line">      t.timestamps</span>
+<span class="line">    <span class="keyword">end</span></span>
+<span class="line">  <span class="keyword">end</span></span>
+<span class="line"><span class="keyword">end</span></span>
+</pre></td></tr></table></figure>
+
+<p>這時就必須指定關聯</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span> &lt; ApplicationRecord</span></span>
+<span class="line">  belongs_to <span class="symbol">:commentable</span>, <span class="symbol">:polymorphic</span> =&gt; <span class="literal">true</span></span>
+<span class="line">                          <span class="comment">#透過true來將此關聯指定是多型關聯</span></span>
+<span class="line"><span class="keyword">end</span></span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span> &lt; ApplicationRecord</span></span>
+<span class="line">  has_many <span class="symbol">:comments</span>, <span class="symbol">:as</span> =&gt; <span class="symbol">:commentable</span></span>
+<span class="line">                      <span class="comment">#我們用:as來指定 :commentable這個參數作為多型關聯的接口</span></span>
+<span class="line">                      <span class="comment">#:as是什麼？可以看has_one or has_many API</span></span>
+<span class="line"><span class="keyword">end</span></span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Photo</span> &lt; ApplicationRecord</span></span>
+<span class="line">  has_many <span class="symbol">:comments</span>, <span class="symbol">:as</span> =&gt; <span class="symbol">:commentable</span></span>
+<span class="line"><span class="keyword">end</span></span>
+</pre></td></tr></table></figure>
+
+<p>接下來可以透過關聯來新增留言</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+</pre></td><td class="code"><pre><span class="line">article &#x3D; Article.first</span>
+<span class="line"></span>
+<span class="line">#透過關連新增留言</span>
+<span class="line">comment &#x3D; article.comments.create(:content &#x3D;&gt; &quot;First Comment&quot;)</span>
+<span class="line"></span>
+<span class="line">#你可以發現 Rails 很聰明的幫我們指定了被留言物件的種類和id</span>
+<span class="line">comment.commentable_type &#x3D;&gt; &quot;Article&quot;</span>
+<span class="line">comment.commentable_id &#x3D;&gt; 1</span>
+<span class="line"></span>
+<span class="line">#也可以透過 commentable 反向回查關連的物件</span>
+<span class="line">comment.commentable &#x3D;&gt; #&lt;Article id: 1, ....&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>簡單來說，我有一個留言的model了，我在文章與照片都想要可以留言，既然已經有model在做這件事了，<br>我們就使用多型關聯來連到那裡去。就不用說還需要再另外建立什麼了。</p>
+<p>文章引用參考至：<br><a target="_blank" rel="noopener" href="https://ihower.tw/rails/activerecord-relationships.html">https://ihower.tw/rails/activerecord-relationships.html</a><br><a target="_blank" rel="noopener" href="https://ihower.tw/rails/activerecord-others.html">https://ihower.tw/rails/activerecord-others.html</a></p>
+<p>-W</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/" data-id="ckyfilfz6000e6m9kcjmrgxsf" data-title="單一表格繼承與多型關聯" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/07/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Rails-super-起飛摟
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/07/%E9%A1%9E%E5%88%A5%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E7%89%A9%E4%BB%B6%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">類別是什麼？物件是什麼？</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/">Rails sidekiq 指定 vm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/11/ActiveRecord-Store/">ActiveRecord::Store</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/">2021 期望與 2020 回顧</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/01/Rails-hotwire/">Rails hotwire</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/">Ruby on Rails, Rspec use webmock gem</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Willy Chang<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
