@@ -1,104 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Heroku-Application-error解決 | 唯一進步的地方, 大概只有體重</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。 於是就透過 heroku logs - tail 這段指令，看到了以下畫面  他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。 web: bin&#x2F;rails server -p 3000 改">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Heroku-Application-error解決">
-<meta property="og:url" content="http://willychang.com/2020/05/07/Heroku-Application-error%E8%A7%A3%E6%B1%BA/index.html">
-<meta property="og:site_name" content="唯一進步的地方, 大概只有體重">
-<meta property="og:description" content="因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。 於是就透過 heroku logs - tail 這段指令，看到了以下畫面  他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。 web: bin&#x2F;rails server -p 3000 改">
-<meta property="og:locale">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png">
-<meta property="og:image" content="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png">
-<meta property="article:published_time" content="2020-05-06T17:01:11.000Z">
-<meta property="article:modified_time" content="2022-01-15T07:34:01.601Z">
-<meta property="article:author" content="Willy Chang">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png">
-  
-    <link rel="alternate" href="/atom.xml" title="唯一進步的地方, 大概只有體重" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Willy Chang">
+
+
+
+
+
+<title>Heroku-Application-error解決 | 唯一進步的地方, 大概只有體重</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
+    <link rel="stylesheet" href="/css/style.css">
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 <meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">唯一進步的地方, 大概只有體重</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://willychang.com"></form>
-      </div>
-    </div>
-  </div>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Willy&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Willy&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
 
-      <div class="outer">
-        <section id="main"><article id="post-Heroku-Application-error解決" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/Heroku-Application-error%E8%A7%A3%E6%B1%BA/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T17:01:11.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Heroku-Application-error解決
-    </h1>
-  
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Heroku-Application-error解決</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Willy Chang</a>
+                    
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png"><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
+                    
+                        <span class="post-time">
+                        Date: <a href="#">五月 7, 2020&nbsp;&nbsp;1:01:11</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png"><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
 <p>於是就透過 <code>heroku logs - tail</code> 這段指令，看到了以下畫面</p>
 <p><img src="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png"></p>
 <p>他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。</p>
@@ -108,134 +147,43 @@
 <p>可能是因為Heroku不能指定PROT的關係。</p>
 <p>如果你的問題也跟我一樣，可以嘗試看看這個方法。</p>
 
-      
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/05/07/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/">Rails-追code-小技巧</a>
+            
+            
+            <a class="next" rel="next" href="/2020/05/07/Git-%E6%98%AF%E4%BB%80%E9%BA%BC/">Git 是什麼</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Willy Chang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/Heroku-Application-error%E8%A7%A3%E6%B1%BA/" data-id="ckyfjbtiq0003z39kdkqm9p1e" data-title="Heroku-Application-error解決" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/05/07/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Rails-追code-小技巧
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/05/07/Git-%E6%98%AF%E4%BB%80%E9%BA%BC/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Git 是什麼</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/">Rails sidekiq 指定 vm</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/11/ActiveRecord-Store/">ActiveRecord::Store</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/">2021 期望與 2020 回顧</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/01/Rails-hotwire/">Rails hotwire</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/">Ruby on Rails, Rspec use webmock gem</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 Willy Chang<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
+
 </html>

@@ -1,700 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>唯一進步的地方, 大概只有體重</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="唯一進步的地方, 大概只有體重">
-<meta property="og:url" content="http://willychang.com/index.html">
-<meta property="og:site_name" content="唯一進步的地方, 大概只有體重">
-<meta property="og:locale">
-<meta property="article:author" content="Willy Chang">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="唯一進步的地方, 大概只有體重" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Willy Chang">
+
+
+
+
+
+<title>唯一進步的地方, 大概只有體重</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
+    <link rel="stylesheet" href="/css/style.css">
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 <meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">唯一進步的地方, 大概只有體重</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://willychang.com"></form>
-      </div>
-    </div>
-  </div>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Willy&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Willy&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Rails-sidekiq-指定-vm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/" class="article-date">
-  <time class="dt-published" datetime="2021-11-02T04:43:02.000Z" itemprop="datePublished">2021-11-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/">Rails sidekiq 指定 vm</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>當 Rails 在 <code>vm</code> 上有好幾台機器, 像是 <code>load balance</code><br>有某個 <code>worker</code> 只在特定的 <code>vm</code> 上跑。<br>可能有某個 API 有設定 IP 白名單。<br>可以在 <code>sidekiq.yml</code> 設定</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sidekiq.yml</span></span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定以下 queues</span></span><br><span class="line"><span class="string">:queues:</span></span><br><span class="line">  <span class="bullet">-</span> [&lt;%=<span class="ruby"> <span class="string">`hostname`</span>.strip </span>%&gt;, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
-<p>這時候會在 <code>sidekiq</code> 後台可以看到多了名稱的 <code>queues</code><br>就可以在 <code>job</code> 設定 <code>sidekiq_options queue: &quot;#&#123;Rails.env&#125;-1&quot;</code></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># frozen_string_literal: true</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Notice::SendSmsJob</span></span></span><br><span class="line">  <span class="keyword">include</span> Sidekiq::Worker</span><br><span class="line">  sidekiq_options <span class="symbol">queue:</span> <span class="string">&quot;<span class="subst">#&#123;Rails.env&#125;</span>-1&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">perform</span><span class="params">(order_number, msg)</span></span></span><br><span class="line">    ...</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/sidekiq.png" alt="console"></p>
-<p>這樣你的 <code>job</code> 就可以指定要在哪台機器上運作了</p>
-<p>參考文章<br><a target="_blank" rel="noopener" href="https://www.mikeperham.com/2013/11/13/advanced-sidekiq-host-specific-queues/">https://www.mikeperham.com/2013/11/13/advanced-sidekiq-host-specific-queues/</a></p>
-
-      
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+    <div class="container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/archives"><img src="/image/w.jpeg"></a>
+        </div>
+        <div class="nickname">Willy Chang</div>
+        <div class="description"><p>：）</p>
+</div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Resume" target="_blank" rel="noopener" href="https://www.cakeresume.com/willy-chang-3dc65d">
+                        
+                        
+                            <i class="iconfont icon-resume"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/willy-chang-82a725199/">
+                        
+                        
+                            <i class="iconfont icon-linkedin"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Instagram" target="_blank" rel="noopener" href="https://www.instagram.com/willyjie23/">
+                        
+                        
+                            <i class="iconfont icon-instagram"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" target="_blank" rel="noopener" href="https://github.com/willyjie23">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/" data-id="ckyfjbtis0007z39k4yvi4nk6" data-title="Rails sidekiq 指定 vm" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-
-  
-    <article id="post-ActiveRecord-Store" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/05/11/ActiveRecord-Store/" class="article-date">
-  <time class="dt-published" datetime="2021-05-11T13:10:16.000Z" itemprop="datePublished">2021-05-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/05/11/ActiveRecord-Store/">ActiveRecord::Store</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>之前在使用 <code>Spree</code> 這個電商模板的 gem 時，裡面有一個功能讓我覺得很方便<br>它是 <code>preference</code>，但看了一下原來是 <code>serialize</code> 幫你做的事情。</p>
-<p>但今天的主角是 <code>ActiveRecord::Store</code><br><code>store</code> 其實也是 <code>serialize</code> 包裹著。</p>
-<p>但總有些場景不想建欄位，卻又必須存些什麼。<br>例如 user 的一些基本設定？<br>在工作上時一直覺得 <code>spree</code> 的 <code>preference</code> 很好用。<br>可以用來存一些 <code>key, value</code> 的東西<br>剛好在今天查到了 <code>store</code></p>
-<p>其實 <code>store</code> 跟 <code>serialize</code> 不一樣的地方。<br>應該在於 <code>store</code> 的 <code>accessors</code> 可以直接 call <code>key</code></p>
-<p>首先我們要有一個欄位型態是 <code>text</code></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAddTextTypeColumn</span> &lt; ActiveRecord::Migration[6.1]</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span><br><span class="line">    add_column <span class="symbol">:users</span>, <span class="symbol">:settings</span>, <span class="symbol">:text</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>接下來才在 <code>Model</code>設定</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># serialize</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  serialize <span class="symbol">:settings</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>使用 <code>serialize</code> 需要透過以下的方法才能得到 <code>value</code><br><img src="/images/serialize.png" alt="console"></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># store</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">  store <span class="symbol">:settings</span>, <span class="symbol">accessors:</span> <span class="symbol">:gender</span> <span class="comment"># accessors 可以設定我們的 keys</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>使用 <code>store</code> 則可以直接 call <code>gender</code><br><img src="/images/store.png" alt="console"></p>
-<p>總結：</p>
-<ol>
-<li>在 store, user 這樣需要很多設定的時候, 這種序列化的功能或許會有幫助(？</li>
-<li>相對的要下 SQL 語法查詢時也需要使用序列化的語法</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://api.rubyonrails.org/classes/ActiveRecord/Store.html">ActiveRecord::Store API</a></p>
-
-      
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Willy Chang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2021/05/11/ActiveRecord-Store/" data-id="ckyfjbtii0000z39ka1b4hqve" data-title="ActiveRecord::Store" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2021-期望與-2020-回顧" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/" class="article-date">
-  <time class="dt-published" datetime="2021-02-15T05:39:24.000Z" itemprop="datePublished">2021-02-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/">2021 期望與 2020 回顧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>2021新年到了，也是要給自己一個目標與回顧。</p>
-<p>首先在2021年初，我離開了原本待的公司。<br>主要是自己的規劃與決定，先給自己一個掌聲，因為越來越會幫自己做決定了。</p>
-<h1 id="2021期望"><a href="#2021期望" class="headerlink" title="2021期望"></a>2021期望</h1><ol>
-<li><h4 id="程式碼與電腦的基礎知識"><a href="#程式碼與電腦的基礎知識" class="headerlink" title="程式碼與電腦的基礎知識"></a>程式碼與電腦的基礎知識</h4>對於不是本科系的我來說，有了一些基礎的物件導向概念，但一定不夠，只有持續進步，才能趕得上人家的腳步。<br>相對的來說，還有很多原理必須搞懂，就是給自己三年時間，把自己在這塊能力上加強，打好基礎扎根下去。</li>
-<li><h4 id="英文能力"><a href="#英文能力" class="headerlink" title="英文能力"></a>英文能力</h4>不管在找資料與溝通上，總有很多英文需要解釋與提問，甚至怎麼用對的問法去找資料才是最重要的。<br>今年要從補習、追美劇(?，這方面來加強？當然學習英文對我來說是很重要的規劃之一，畢竟我以後想出國工作！</li>
-<li><h4 id="溝通能力"><a href="#溝通能力" class="headerlink" title="溝通能力"></a>溝通能力</h4>在與主管與同事交流時，甚至與不是技術團隊的人員溝通，如何用「人話」來溝通！<br>有時候太過於緊張，而把事情講的太過複雜，或者與主管提問時，讓人聽不懂！</li>
-</ol>
-<h1 id="2020回顧"><a href="#2020回顧" class="headerlink" title="2020回顧"></a>2020回顧</h1><p>去年在畢業前就找到工作，尤其相對幸運的面試一間就找到了！<br>但對於面試經驗少之又少的我，在今年離開公司後，去面試了幾間後，發現有即時考試的，我會頭腦一片空白，一小時的時間根本寫不出什麼，結果回家操作一次，15分鐘就結束了。尤其有人在旁邊時，我好像會因為怕查錯資料或者查很白癡的東西而緊張！<br>當然也收到了幾間的感謝信，但對我來說都是經驗，尤其是他們的回饋相對重要，就是吸取經驗，充實自己啊！<br>接受錯誤不丟臉，不承認錯誤才丟臉。<br>很感謝前公司對我的栽培，不管是同事或主管，對於我的包容與指教，一年裡我學的東西，包含商業邏輯、溝通能力、工作能力還有很多基礎的東西，由於是新創，碰的東西也多，這是我非常感謝的！最後也產出了三個月破百萬的電商！</p>
-<p>在自己的能力上，雖然有時候怎麼完成的都不知道，但好像慢慢找出自己的一套方法，這方面再昇華，肯定對自己獨立能力會有很大的進步。程式方面，就不用說了，碰的東西很多，就是記住做不好的地方，持續進步進步在進步，我會接受錯誤的！</p>
-<p>對於自己一年的表現，給個及格的60分！<br>及格的原因是，從一開始被臭罵到快不知所措，到後面可以與主管溝通，表達自己的想法，到可以獨立完成功能。<br>這部分對我來說，是持續在進步的。<br>當然還有40分的進步空間，就要看自己的造化能力了。</p>
-<h1 id="新年快樂！"><a href="#新年快樂！" class="headerlink" title="新年快樂！"></a>新年快樂！</h1><p>-W</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/" data-id="ckyfjbtir0005z39k9bzue1u7" data-title="2021 期望與 2020 回顧" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Rails-hotwire" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/01/Rails-hotwire/" class="article-date">
-  <time class="dt-published" datetime="2021-01-01T14:44:24.000Z" itemprop="datePublished">2021-01-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/01/Rails-hotwire/">Rails hotwire</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://hotwire.dev/">hotwire</a> DHH的新魔法，雖然很新，但剛可以玩看看。</p>
-<p>如何實作在 <code>index</code>頁面就把 CRUD 做完呢？<br>如果要實作，可能需要複雜的 JS。<br><code>hotwire</code> 幫你快速在頁面處理與顯示。</p>
-<p>首先， <code>hotwire-rails</code> 這個 <code>gem</code> 的安裝就不講了。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先我們先用 `scaffold` 建立一些基礎</span></span><br><span class="line"></span><br><span class="line">rails g scaffold User name age</span><br></pre></td></tr></table></figure>
-
-<p>因為 <code>scaffold</code>已經幫我們處理好 CRUD 了，我們只需要管 views 就好了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2021/01/01/Rails-hotwire/" data-id="ckyfjbtip0002z39k98dz2sdm" data-title="Rails hotwire" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Ruby-on-Rails-Rspec-use-webmock-gem" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/" class="article-date">
-  <time class="dt-published" datetime="2020-12-05T14:35:58.000Z" itemprop="datePublished">2020-12-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/">Ruby on Rails, Rspec use webmock gem</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>當在撰寫測試時，肯定會遇到是在處理外部服務(api)的事情。<br>正因為我也剛好使用了 <code>coverage</code> 這個 gem，來看看測試覆蓋率。<br>不管怎麼做，就是沒有頭緒，不知道怎麼在測試裡執行裡面的程式。<br>我們也必須確保這段程式沒有誤。</p>
-<p>直到我用了 <code>webmock</code> 這個 gem，也就是今天的主角。<br><code>webmock</code> 是用於在Ruby中對HTTP請求進行 stub 設置與期望的結果。它允許我們對HTTP請求進行stub，並設置和驗證對任何HTTP請求的期望。也能使用 <code>Net::HTTP</code> 當然也可以使用 <code>HTTParty</code></p>
-<p>當我們在 <code>Rspec</code> 使用 <code>webmock</code><br>需要設定與讓我們通過禁用我們的測試套件來確保它們不能發出外部請求</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># spec_helper.rb</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;webmock/rspec&#x27;</span></span><br><span class="line">WebMock.disable_net_connect!(<span class="symbol">allow_localhost:</span> <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
-
-<p>我設定了一個 <code>UserService</code></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserService</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(email)</span></span></span><br><span class="line">    <span class="variable">@email</span> = email</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">user_profile</span></span></span><br><span class="line">    HTTParty.get(<span class="string">&#x27;https://demo.com/profile&#x27;</span>, <span class="symbol">query:</span> &#123; <span class="symbol">user:</span> <span class="variable">@email</span> &#125;, <span class="symbol">headers:</span> &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> &#125;)</span><br><span class="line">    <span class="comment"># return</span></span><br><span class="line">    <span class="comment"># &#123; status: 200, parsed_resp: &#123; name: &#x27;willy&#x27;, age: 18 &#125; &#125;</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">add_new_user</span></span></span><br><span class="line">    HTTParty.post(<span class="string">&#x27;https://demo.com/new_user&#x27;</span>, <span class="symbol">body:</span> &#123; <span class="symbol">user:</span> <span class="variable">@user</span> &#125;, <span class="symbol">headers:</span> &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> &#125;)</span><br><span class="line">    <span class="comment"># return</span></span><br><span class="line">    <span class="comment"># &#123; status: &#x27;ok&#x27; &#125;</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>這是用來模擬可以用 <code>email</code>，來獲取使用者資料或是新增使用者的 <code>service</code></p>
-<p>接下來就可以開始撰寫我們的測試了</p>
-<p>首先我們針對 <code>#user_profile</code> 這個 <code>method</code> 開始</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">&#x27;rails_helper&#x27;</span></span><br><span class="line"></span><br><span class="line">RSpec.describe UserService <span class="keyword">do</span></span><br><span class="line">  describe <span class="string">&#x27;#user_profile&#x27;</span> <span class="keyword">do</span></span><br><span class="line">    it <span class="string">&#x27;Correct URI&#x27;</span> <span class="keyword">do</span></span><br><span class="line">      <span class="comment"># 這裡我們需要 stub 我們要處理的 api uri</span></span><br><span class="line">      <span class="comment"># 我們可以設定 headers 或是 body or query params</span></span><br><span class="line">      stub_request(<span class="symbol">:get</span>, <span class="string">&#x27;https://demo.com/profile&#x27;</span>).with(</span><br><span class="line">        <span class="symbol">headers:</span> &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> &#125;,</span><br><span class="line">        <span class="symbol">query:</span> hash_including(&#123; <span class="symbol">user:</span> <span class="string">&#x27;willy@gmail.com&#x27;</span> &#125;)</span><br><span class="line">      ).to_return(<span class="symbol">body:</span> &#123; <span class="symbol">status:</span> <span class="number">200</span>, <span class="symbol">name:</span> <span class="string">&#x27;willy&#x27;</span>, <span class="symbol">age:</span> <span class="number">18</span> &#125;.to_json)</span><br><span class="line">      <span class="comment"># to_return 就是模擬 api 回傳的結果</span></span><br><span class="line">      resp = UserService.new(<span class="string">&#x27;willy@gmail.com&#x27;</span>).user_profile</span><br><span class="line">      result = JSON.parse(resp)</span><br><span class="line"></span><br><span class="line">      expect(result[<span class="string">&#x27;status&#x27;</span>]).to eq(<span class="number">200</span>)</span><br><span class="line">      expect(result[<span class="string">&#x27;name&#x27;</span>]).to eq(<span class="string">&#x27;willy&#x27;</span>)</span><br><span class="line">      expect(result[<span class="string">&#x27;age&#x27;</span>]).not_to eq(<span class="number">30</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>我們把 <code>uri</code> 換成別的看看</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">it <span class="string">&#x27;Wrong URI&#x27;</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># 這裡我們需要 stub 換成別的網址看看</span></span><br><span class="line">  <span class="comment"># 我們可以設定 headers 或是 body or query params</span></span><br><span class="line">  stub_request(<span class="symbol">:get</span>, <span class="string">&#x27;https://test.com/profile&#x27;</span>).with(</span><br><span class="line">    <span class="symbol">headers:</span> &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span> &#125;,</span><br><span class="line">    <span class="symbol">query:</span> hash_including(&#123; <span class="symbol">user:</span> <span class="string">&#x27;willy@gmail.com&#x27;</span> &#125;)</span><br><span class="line">  ).to_return(<span class="symbol">body:</span> &#123; <span class="symbol">status:</span> <span class="number">200</span>, <span class="symbol">name:</span> <span class="string">&#x27;willy&#x27;</span>, <span class="symbol">age:</span> <span class="number">18</span> &#125;.to_json)</span><br><span class="line">  resp = UserService.new(<span class="string">&#x27;willy@gmail.com&#x27;</span>).user_profile</span><br><span class="line">  result = JSON.parse(resp)</span><br><span class="line"></span><br><span class="line">  expect(result[<span class="string">&#x27;status&#x27;</span>]).to eq(<span class="number">200</span>)</span><br><span class="line">  expect(result[<span class="string">&#x27;name&#x27;</span>]).to eq(<span class="string">&#x27;willy&#x27;</span>)</span><br><span class="line">  expect(result[<span class="string">&#x27;age&#x27;</span>]).not_to eq(<span class="number">30</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>沒意外的話，在 run rspec 時，會得到下面的回應</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebMock::NetConnectNotAllowedError</span><br></pre></td></tr></table></figure>
-<p>我們也可以<code>stub_request(:post)</code></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">describe <span class="string">&#x27;#add_new_user&#x27;</span> <span class="keyword">do</span></span><br><span class="line">    it <span class="string">&#x27;create user success&#x27;</span> <span class="keyword">do</span></span><br><span class="line">      stub_request(<span class="symbol">:post</span>, <span class="string">&#x27;https://demo.com/new_user&#x27;</span>).with(</span><br><span class="line">        <span class="symbol">headers:</span> &#123; <span class="string">&#x27;Content-Type&#x27;</span> =&gt; <span class="string">&#x27;application/json&#x27;</span> &#125;</span><br><span class="line">      ).to_return(<span class="symbol">body:</span> &#123; <span class="symbol">status:</span> <span class="number">200</span>, <span class="symbol">message:</span> <span class="string">&#x27;ok&#x27;</span> &#125;.to_json)</span><br><span class="line">      resp = UserService.new(<span class="string">&#x27;willy@gmail.com&#x27;</span>).add_new_user</span><br><span class="line">      result = JSON.parse(resp)</span><br><span class="line"></span><br><span class="line">      expect(result[<span class="string">&#x27;status&#x27;</span>]).to eq(<span class="number">200</span>)</span><br><span class="line">      expect(result[<span class="string">&#x27;message&#x27;</span>]).to eq(<span class="string">&#x27;ok&#x27;</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment"># it &#x27;user already exists&#x27; do</span></span><br><span class="line">    <span class="comment"># end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>結論：</p>
-<ol>
-<li><code>stub_request</code> 的 <code>uri</code> 必須跟原本的 <code>get</code> or <code>post</code> 的 <code>uri</code> 一樣<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如我在 <span class="string">`#user_profile`</span></span><br><span class="line">HTTParty.get(<span class="string">&#x27;https://demo.com/profile&#x27;</span>)</span><br><span class="line">那我 stub_request(<span class="symbol">:get</span>, <span class="string">&#x27;https://demo.com/profile&#x27;</span>) 就必須跟上面一樣，否則就會出現上面的 error</span><br></pre></td></tr></table></figure></li>
-<li>我們要確保我們的測試套件不會影響任何第三方服務。我們的測試應該獨立運行。</li>
-<li>加速我們針對測試的撰寫</li>
-</ol>
-<p>-W</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/" data-id="ckyfjbtiw000fz39kcjhzhgdc" data-title="Ruby on Rails, Rspec use webmock gem" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-用-asdf-來管理-Ruby-版本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/01/%E7%94%A8-asdf-%E4%BE%86%E7%AE%A1%E7%90%86-Ruby-%E7%89%88%E6%9C%AC/" class="article-date">
-  <time class="dt-published" datetime="2020-12-01T15:00:26.000Z" itemprop="datePublished">2020-12-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/01/%E7%94%A8-asdf-%E4%BE%86%E7%AE%A1%E7%90%86-Ruby-%E7%89%88%E6%9C%AC/">用 asdf 來管理 Ruby 版本</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="用-asdf-來管理-Ruby-版本"><a href="#用-asdf-來管理-Ruby-版本" class="headerlink" title="用 asdf 來管理 Ruby 版本"></a>用 asdf 來管理 Ruby 版本</h1><p>我原本是用 rvm 來做版控，但後來想說用看看 asdf 好了</p>
-<p>安裝 asdf 的步驟就先跳過了</p>
-<p>首先要先做</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asdf plugin-add ruby</span><br></pre></td></tr></table></figure>
-
-<p>這時可以需入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">asdf plugin-list</span><br><span class="line">#可以看到</span><br><span class="line">ruby</span><br></pre></td></tr></table></figure>
-
-<p>之後就可以安裝你要的 ruby 版本了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asdf install ruby 2.6.3</span><br></pre></td></tr></table></figure>
-
-<p>安裝完畢後，可以輸入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">asdf list</span><br><span class="line">#可以看到已安裝的版本</span><br><span class="line">ruby</span><br><span class="line">  2.6.3</span><br></pre></td></tr></table></figure>
-
-<p>由於已經把<code>rvm</code>刪除了，所以這時候在專案底下應該要跑 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br><span class="line">bundle install</span><br></pre></td></tr></table></figure>
-
-<p>當然也可設定各環境的版本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">asdf shell &lt;name&gt; &lt;version&gt; Set the package version in the current shell</span><br><span class="line">asdf local &lt;name&gt; &lt;version&gt; Set the package local version</span><br><span class="line">asdf global &lt;name&gt; &lt;version&gt; Set the package global version</span><br></pre></td></tr></table></figure>
-
-<p>但每個專案下使用的版本都不一樣<br>所以也必須告訴 <code>asdf</code>要使用哪個版本<br>那就必須在專案目錄底下新增 <code>.tool-versions</code><br>在裡面設定版本<br>設定好後可以輸入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">asdf current</span><br><span class="line">#可以看到</span><br><span class="line">ruby 2.5.7 (set by /Users/willychang/Documents/oakda/kakao-spree/.tool-versions)</span><br></pre></td></tr></table></figure>
-<p>或是在專案目錄底下新增 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">touch .asdfrc</span><br><span class="line"></span><br><span class="line">#輸入</span><br><span class="line">legacy_version_file = yes</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">asdf current</span><br><span class="line">#這時候他會去找 .ruby-versions 裡面的版本</span><br><span class="line">ruby 2.5.7 (set by /Users/willychang/Documents/oakda/kakao-spree/.ruby-versions)</span><br></pre></td></tr></table></figure>
-
-<p>但有時候在每個專案下已經指定版本了，也有以後的兩個檔案<br>但還是會出現</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">asdf: No version set for command rails</span><br><span class="line">you might want to add one of the following in your .tool-versions file:</span><br><span class="line"></span><br><span class="line">ruby 2.x.x</span><br><span class="line">ruby 2.x.x</span><br></pre></td></tr></table></figure>
-
-<p>因為每個版本的套件都不同，這時候只要下，重新安裝</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asdf reshim</span><br></pre></td></tr></table></figure>
-
-<p>詳細介紹可參考下列文章<br><a target="_blank" rel="noopener" href="https://asdf-vm.com/#/">asdf 官網</a><br><a target="_blank" rel="noopener" href="https://github.com/asdf-vm/asdf">asdf githut</a><br><a target="_blank" rel="noopener" href="http://stratus3d.com/blog/2015/11/27/introducing-asdf-the-extendable-version-manager/">Introducing Asdf: The Extendable Version Manager - Stratus3D</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/12/01/%E7%94%A8-asdf-%E4%BE%86%E7%AE%A1%E7%90%86-Ruby-%E7%89%88%E6%9C%AC/" data-id="ckyfjbtj1000iz39k1htocij0" data-title="用 asdf 來管理 Ruby 版本" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-學習寫程式一年了" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/10/30/%E5%AD%B8%E7%BF%92%E5%AF%AB%E7%A8%8B%E5%BC%8F%E4%B8%80%E5%B9%B4%E4%BA%86/" class="article-date">
-  <time class="dt-published" datetime="2020-10-30T14:36:02.000Z" itemprop="datePublished">2020-10-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/10/30/%E5%AD%B8%E7%BF%92%E5%AF%AB%E7%A8%8B%E5%BC%8F%E4%B8%80%E5%B9%B4%E4%BA%86/">學習寫程式一年了</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>學習寫程式一年了。<br>往回看一年前的自己，覺得自己做的這個決定很棒，畢竟我不是個擅長做決定的人。</p>
-<p>就來說說當時的我在想什麼吧。</p>
-<p>很多人問我，你怎麼會想學這個，我相信有問的，我都會回答 <strong>靈光一閃</strong>，但我說的是真的。<br>我就一個非本科的，再怎麼想，也不會想到這個吧，況且也沒有對象讓我學習讓我參考。<br>從一開始的上網找資料，找補習班，包括巨x、聯x，當然還有五倍，去試聽，去上說明會，最後選擇了五倍。</p>
-<p>為何會選擇五倍，對我來說，需要學習一項完全沒有觸碰過的，師資當然是考量，但我反而比較看重的是學習環境，畢竟有好的環境，才有好的學習態度吧，我覺得！也不是要說誰誰誰不好，可能去試聽或聽說明會，應該就能感覺出差別吧。</p>
-<p>從一開始的掙扎，就像上面說的，我完全沒碰過，也不是本科，頂多就學電影裡的駭客，敲自家鍵盤就感覺自己很厲害了😂然後一直問五倍的粉絲團很多問題，啊我就怕被罵啊！連可不可以帶便當，有沒有微波爐，都在問了！到後來決定要上課了，也下定決心了，才發現，一切沒有想的那麼簡單。</p>
-<p>一到五，每天7-8小時的課程，充實，真的充實！但對我來說養分過多，吸收多少每個人可能不一樣，起初很怕自己跟不上，但說真的有點跟不上，不是老師進度太快，而是遇到問題了沒發問，就當作大家都懂了，但後來才知道，很多同學都跟我一樣霧煞煞。因為大家都不敢舉手發問，怕問了很丟臉的問題，才導致這種情況發生。回家才死命看錄製的課程，效果不佳👎</p>
-<p>回家也有功課，剛開始每天就是回家拼了命練習CRUD，然後完成老師的作業。印象深刻，Amos的作業，手刻官網吧，隔天被噴得稀巴爛，同學都做得很好，我倒是不知道在刻三小，但好的事情是，起碼我知道自己需要改進的地方在哪裡，雖然是在全班面前噴，但以前都在家長面前被打了，現在老師應該不會打我吧，應該吧。</p>
-<p>好啦上面可能只是一些上課的事情，但其實想說的還是以下這些吧。</p>
-<p>寫程式呢，對我來說就像腦筋急轉彎，很多關卡要動腦才能過關，這可能像是功能之類的。加上我不是本科，很多電腦科學的事情，說真的我不知道，完全不懂，但這一路上遇到很多好人熱心的人，總是不計代價的教我，就像助教Fxxd(我不知道是誰) 雖然會說，<strong>你這在寫什麼啦，胡搞瞎搞之類的</strong>，然後問你懂不懂，我當然不懂啊，懂的話還會被罵，又不是討罵。最後還是一一講解原理，當然還有很多熱心的人，我都記住你們無私的教學。</p>
-<p>我一直覺得我很幸運，在上課時，或是現在已經在工作了，遇到很多幫助我的人，我知道這行業沒有很簡單，也不想當個半調子的人，所以我還是一直在學習，只要是能吸收的，就把它變成自己的。</p>
-<p><strong>現在有了目標，我可能還看不到它的尾巴，我會持續向它邁進。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/10/30/%E5%AD%B8%E7%BF%92%E5%AF%AB%E7%A8%8B%E5%BC%8F%E4%B8%80%E5%B9%B4%E4%BA%86/" data-id="ckyfjbtix000hz39k0gcm00m0" data-title="學習寫程式一年了" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-我是個運動員" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/09/06/%E6%88%91%E6%98%AF%E5%80%8B%E9%81%8B%E5%8B%95%E5%93%A1/" class="article-date">
-  <time class="dt-published" datetime="2020-09-06T06:03:28.000Z" itemprop="datePublished">2020-09-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/09/06/%E6%88%91%E6%98%AF%E5%80%8B%E9%81%8B%E5%8B%95%E5%93%A1/">我是個運動員</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="我曾經是運動員，但我還留著運動員的血液。"><a href="#我曾經是運動員，但我還留著運動員的血液。" class="headerlink" title="我曾經是運動員，但我還留著運動員的血液。"></a>我曾經是運動員，但我還留著運動員的血液。</h1><p>運動員可以幹嘛，沒幹嘛，我只是想講而已，怎樣？怪我摟？<br>可能大家還是覺得運動員只是頭腦簡單，四肢發達這樣吧。<br>但我今天也不是來說這些的。</p>
-<p>其實每次跟朋友出去吃飯，可能是現在的職業，大家看到我都會說好屌喔好猛喔。<br>對，其實我也覺得好屌，從打棒球到打程式碼，之前我說過，我在我身邊是第一個，應該吧。<br>但我覺得不是我很厲害，而是我很幸運，因為遇到的貴人很多，一路跌跌撞撞的輔助我。</p>
-<p>很多人問，『你怎麼會想學這個啊？』，我都會回說 <code>因為靈光一閃</code>。</p>
-<p>不打球後，我要做什麼？相信這是很多人會遇到的問題，畢竟我們把現在跟未來都獻給了運動，<br>我們有夢想，踏上職業，把所有都投入。<br>練習的時間，大概佔了一天的三分之一，睡覺也是。那剩下的時間，可能包括自主訓練，跟娛樂。</p>
-<p>絕大部分的運動員都願意學習新東西，不要說不相信，今天科技那麼發達，選手很聰明，<br>在網路上看到新技術，職業都在用那套，但球隊或是教練卻還在教舊式的方法，選手難免心裡會有些不同的想法。<br>因為現在沒打了，才發現有時候換個角度，換個想法，就不會產生出對立的感覺，這我就不說了。</p>
-<p>那今天我想說的，其實是剩下的時間那部分。</p>
-<p>自主訓練，推，沒話講。</p>
-<p>娛樂可以，但不要多，覺得沒有說服力，認識我的都知道我練完球，就是坐在電腦前，不是學習，而是打遊戲看影片。<br>就是這樣，我今天才想講。<br>大學因為比較不像高中國中需要教練在旁邊盯著，大家都是大人了，相對的你也得為自己負責了。</p>
-<h1 id="學習，找個有一點點興趣的"><a href="#學習，找個有一點點興趣的" class="headerlink" title="學習，找個有一點點興趣的"></a>學習，找個有一點點興趣的</h1><p>語言、畫圖等等不管，我是蠻推語言的啦，如果以後出國，語言可以幫助你很多。<br>一點點興趣，積少成多，四年時間很多吧。<br>但這點需要是你自己願意花時間的學習，而不是別人逼著你，因為自學的前提是你喜歡。</p>
-<p>為何要學習，奉獻一生給自己的夢想，不是很酷嗎？挺酷的！<br>但確定是給夢想嗎？那就不一定了。<br>記得某次體育新聞，周思齊賢拜說現在本土登錄過的球員只有<code>900多個</code><br>30年了，就知道有多少人沒有照自己的藍圖走。</p>
-<p>當然，我相信不打之後，不管學什麼，你都會帶著運動員的精神努力，快40度的天氣都撐過了。<br>但莫忘初衷，當初我們不懂就問，想進步就問，換個環境，依然必須保持這個好優點，<br>即使在白痴的問題，因為就是不會，想知道原因，想進步，想變好才發問的(但可以先自己查一下答案)<br>不要怕被罵，反正他也不會拿教練棒打你了，那就罵吧，不罵不成器啊！</p>
-<h1 id="學習，會使你成長，成為別人也拿不走的。"><a href="#學習，會使你成長，成為別人也拿不走的。" class="headerlink" title="學習，會使你成長，成為別人也拿不走的。"></a>學習，會使你成長，成為別人也拿不走的。</h1><p>-W</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/09/06/%E6%88%91%E6%98%AF%E5%80%8B%E9%81%8B%E5%8B%95%E5%93%A1/" data-id="ckyfjbtiw000ez39khtds77yr" data-title="我是個運動員" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Ruby-on-Rails-Hash-and-HashWithIndifferentAccess" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/09/06/Ruby-on-Rails-Hash-and-HashWithIndifferentAccess/" class="article-date">
-  <time class="dt-published" datetime="2020-09-06T05:43:17.000Z" itemprop="datePublished">2020-09-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/09/06/Ruby-on-Rails-Hash-and-HashWithIndifferentAccess/">Ruby on Rails Hash and HashWithIndifferentAccess</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>有時候我們在 <code>Hash</code> 中要拿取 :key 時, 我們可能會用 <code>sample</code> or <code>string</code><br>但我們用 <code>string</code> 卻會拿到 <code>nil</code></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123; <span class="symbol">a:</span> <span class="number">123</span> &#125;</span><br><span class="line">a[<span class="symbol">:a</span>] -&gt; <span class="number">123</span></span><br><span class="line">a[<span class="string">&#x27;a&#x27;</span>] -&gt; <span class="literal">nil</span></span><br></pre></td></tr></table></figure>
-
-<p>但為什麼在 <code>Rails</code> 的時候卻可以？<br>因為 <code>Rails</code> 的 ActiveSupport::HashWithIndifferentAccess 幫了大忙<br>讓開發者可以同時使用 <code>sample</code> 跟 <code>string</code> 來拿取 :key。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/09/06/Ruby-on-Rails-Hash-and-HashWithIndifferentAccess/" data-id="ckyfjbtis0008z39k6m030ok6" data-title="Ruby on Rails Hash and HashWithIndifferentAccess" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Rails-Capybara" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/09/03/Rails-Capybara/" class="article-date">
-  <time class="dt-published" datetime="2020-09-03T08:42:58.000Z" itemprop="datePublished">2020-09-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/09/03/Rails-Capybara/">Rails Capybara</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Rails Capybara 這個 gem, 相信很多人都是拿來做 test,<br>我原本也是這麼想, 但基於某次主管把它拿來做別的事情後, 我改觀了, 果然經驗很重要！！！</p>
-<p>某次因為要批次列印 c2c 店到店的物流單, 但綠界沒有這個 api 啊啊啊<br>但客戶又有這個需求, 這時求救於主管, 一語點醒夢中人<br>就用 Capybara 的 browser 來幫你自動按就好了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gem &#x27;capybara&#x27;</span><br><span class="line">gem &#x27;selenium-webdriver&#x27;</span><br><span class="line">gem &#x27;capybara-screenshot&#x27;</span><br><span class="line">gem &quot;cuprite&quot;</span><br></pre></td></tr></table></figure>
-
-<p>之後我寫了一個 <code>service</code> 來執行</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">&#x27;capybara&#x27;</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;selenium-webdriver&#x27;</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;capybara-screenshot&#x27;</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;capybara/cuprite&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>接下來就是一些基本設定</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#礙於每個人的設定不同, 所以也不一定會一樣</span></span><br><span class="line">Capybara.javascript_driver = <span class="symbol">:cuprite</span></span><br><span class="line">Capybara.default_driver = <span class="symbol">:selenium</span></span><br><span class="line">Capybara.default_max_wait_time = <span class="number">7</span></span><br><span class="line">Capybara.app_host = <span class="string">&quot;<span class="subst">#&#123;Settings.default_url_options.protocol&#125;</span>://&quot;</span> + Settings.default_url_options.host.to_s</span><br><span class="line">Capybara.run_server = <span class="literal">true</span></span><br><span class="line">Capybara.register_driver <span class="symbol">:cuprite</span> <span class="keyword">do</span> <span class="params">|app|</span></span><br><span class="line">  options = &#123; <span class="symbol">window_size:</span> [<span class="number">1024</span>, <span class="number">768</span>], <span class="symbol">headless:</span> <span class="literal">true</span>, <span class="symbol">timeout:</span> <span class="number">120</span>, <span class="symbol">process_timeout:</span> <span class="number">120</span>, <span class="symbol">browser_options:</span> &#123; <span class="string">&#x27;no-sandbox&#x27;</span>: <span class="literal">nil</span> &#125; &#125;</span><br><span class="line">  Capybara::Cuprite::Driver.new(app, options)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="variable">@session</span> = Capybara::Session.new(<span class="symbol">:cuprite</span>)</span><br><span class="line"><span class="variable">@session</span>.driver.add_headers(&#123; <span class="string">&#x27;User-Agent&#x27;</span> =&gt; <span class="string">&#x27;Cuprite&#x27;</span>, <span class="string">&#x27;Accept-Language&#x27;</span> =&gt; <span class="string">&#x27;zh-tw&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>那其實接下來就是行為觸發, 好比像在寫測試一樣, 根據你的需求去執行.</p>
-<p>但就是想說, 有時候如果把一個東西定義了上了標籤, 就好像刻板印象一樣,<br>但其實可以發揮的作用也是很多, 這是在提醒自己。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/09/03/Rails-Capybara/" data-id="ckyfjbtit0009z39k60k2bsy3" data-title="Rails Capybara" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/">Rails sidekiq 指定 vm</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/11/ActiveRecord-Store/">ActiveRecord::Store</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/">2021 期望與 2020 回顧</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/01/Rails-hotwire/">Rails hotwire</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/">Ruby on Rails, Rspec use webmock gem</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 Willy Chang<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
+
 </html>

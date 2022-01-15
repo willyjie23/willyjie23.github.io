@@ -1,883 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>唯一進步的地方, 大概只有體重</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="唯一進步的地方, 大概只有體重">
-<meta property="og:url" content="http://willychang.com/page/2/index.html">
-<meta property="og:site_name" content="唯一進步的地方, 大概只有體重">
-<meta property="og:locale">
-<meta property="article:author" content="Willy Chang">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="唯一進步的地方, 大概只有體重" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Willy Chang">
+
+
+
+
+
+<title>唯一進步的地方, 大概只有體重</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
+    <link rel="stylesheet" href="/css/style.css">
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 <meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">唯一進步的地方, 大概只有體重</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://willychang.com"></form>
-      </div>
-    </div>
-  </div>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Willy&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Willy&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Jquery-siblings-method" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/08/10/Jquery-siblings-method/" class="article-date">
-  <time class="dt-published" datetime="2020-08-10T14:47:44.000Z" itemprop="datePublished">2020-08-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/08/10/Jquery-siblings-method/">Jquery siblings method</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>雖然 <code>Jquery</code>在現今來說很野蠻，但今天不管它野不野蠻。</p>
-<p>因為專案的關西，前端也會碰到(可以趁機練習)，今天透過<code>ajax</code>來說看看。</p>
-<p>有時候我們需要透過js來尋找我們要的元素。<br>但當我們在迴圈印出資料時，每個<code>class</code>, <code>id</code> 名稱皆會相同。<br>所以我們可以透過<code>this</code>先拿到當下的元素。<br>在透過 <code>siblings()</code>來尋找同層級的元素。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下為erb，僅擷取部分</span></span><br><span class="line"></span><br><span class="line">&lt;% <span class="variable">@orders</span>.each <span class="keyword">do</span> <span class="params">|order|</span> %&gt;</span><br><span class="line">  &lt;td&gt;&lt;%= link_to order.number, edit_admin_order_path(order) %&gt;&lt;br&gt;</span><br><span class="line">      &lt;%= hidden_field_tag order.shipments_number %&gt;</span><br><span class="line">      &lt;input type=<span class="string">&quot;text&quot;</span> <span class="class"><span class="keyword">class</span>=&quot;<span class="title">track</span>-<span class="title">val</span>&quot; <span class="title">value</span>=&quot;&lt;%= <span class="title">order</span>.<span class="title">track_number</span> %&gt;&quot; <span class="title">style</span>=&quot;<span class="title">width</span>:50%;</span><span class="string">&quot; disabled=&quot;</span><span class="literal">true</span><span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">      &lt;%= link_to &#x27;edit&#x27;, &#x27;編輯&#x27;, &#x27;#&#x27;, class: &#x27;edit-tracking btn btn-primary btn-sm&#x27; %&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      &lt;%= link_to &#x27;save&#x27;, &#x27;儲存&#x27;, &#x27;#&#x27;, class: &#x27;save-tracking btn btn-success btn-sm track_btn&#x27;, no_text: true %&gt;</span></span><br><span class="line"><span class="string">  &lt;/td&gt;</span></span><br><span class="line"><span class="string">&lt;% end %&gt;</span></span><br></pre></td></tr></table></figure>
-<p>我想透過在下儲存link的時候透過<code>ajax</code>打到後端做更新。<br>但首先我需要在畫面上拿到元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下為 Jquery</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;.track_btn&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> trackNumber = $(<span class="built_in">this</span>).siblings(<span class="string">&#x27;.track-val&#x27;</span>).val(); <span class="comment">// 我先透過 siblings 方法拿到同層級 .track-val 的val</span></span><br><span class="line">  <span class="keyword">var</span> shipmentNumber = $(<span class="built_in">this</span>).siblings(<span class="string">&#x27;input[type=hidden]&#x27;</span>).attr(<span class="string">&#x27;id&#x27;</span>); <span class="comment">// 在一樣透過 siblings 拿到隱藏input的值</span></span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;PUT&#x27;</span>,</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&#x27;/api/v1/shipments/&#x27;</span> + shipmentNumber + <span class="string">&#x27;.json&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;JSON&#x27;</span>,</span><br><span class="line">      <span class="attr">token</span>: Api.api_key,</span><br><span class="line">      <span class="attr">shipment</span>: &#123; <span class="attr">tracking</span>: trackNumber &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  $(<span class="built_in">this</span>).siblings(<span class="string">&#x27;.track-val&#x27;</span>).attr(<span class="string">&#x27;disabled&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>透過這種可以拿到附近元素的方法，方便很多。</p>
-<p>以上為不負責心得</p>
-<p><a target="_blank" rel="noopener" href="https://api.jquery.com/siblings/" title="Title">siblings method說明</a></p>
-
-      
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+    <div class="container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/archives"><img src="/image/w.jpeg"></a>
+        </div>
+        <div class="nickname">Willy Chang</div>
+        <div class="description"><p>：）</p>
+</div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Resume" target="_blank" rel="noopener" href="https://www.cakeresume.com/willy-chang-3dc65d">
+                        
+                        
+                            <i class="iconfont icon-resume"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/willy-chang-82a725199/">
+                        
+                        
+                            <i class="iconfont icon-linkedin"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Instagram" target="_blank" rel="noopener" href="https://www.instagram.com/willyjie23/">
+                        
+                        
+                            <i class="iconfont icon-instagram"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" target="_blank" rel="noopener" href="https://github.com/willyjie23">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/08/10/Jquery-siblings-method/" data-id="ckyfjbtir0004z39k4l4w535x" data-title="Jquery siblings method" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-
-  
-    <article id="post-rails-綠界參數" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/08/01/rails-%E7%B6%A0%E7%95%8C%E5%8F%83%E6%95%B8/" class="article-date">
-  <time class="dt-published" datetime="2020-08-01T07:20:41.000Z" itemprop="datePublished">2020-08-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/08/01/rails-%E7%B6%A0%E7%95%8C%E5%8F%83%E6%95%B8/">Rails 綠界參數</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>因為自己負責的專案，所以有碰到綠界金物流，在實際操作下，才知道大家口中說到底有奪*了。</p>
-<p>雖然都有api，但有時候卻寫的不是很明確，導致不管怎麼送，都失敗。</p>
-<p>因為參數，有寫說要帶什麼格式，但卻沒說沒帶時需要給什麼！</p>
-<h1 id="空值！！！-也就是空字串就可以了！！！-‘’"><a href="#空值！！！-也就是空字串就可以了！！！-‘’" class="headerlink" title="空值！！！ 也就是空字串就可以了！！！ ‘’"></a>空值！！！ 也就是空字串就可以了！！！ ‘’</h1><p>比方說: ScheduledDeliveryDate #指定到貨日<br>買家可能會想指定到貨日或者不指定。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scheduled_delivery_date</span></span></span><br><span class="line">  bill_address.arrival_date.presence <span class="params">||</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>那其實在try了很多次之下，還有寫信去問。<br>才知道可以傳帶空字串即可。</p>
-<p>那我們通常會用 <code>present</code> 方法，再用三元運算，<br>那這邊可以使用 <code>presence</code>，雖然是做一樣的事情，但可以少寫幾個字。<br><code>presence</code>會自己檢查本身是否存在，如果存在，就會回傳自己，<br>假使不存在，則回傳|| <code>&#39;&#39;</code>回去。</p>
-
-      
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Willy Chang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/08/01/rails-%E7%B6%A0%E7%95%8C%E5%8F%83%E6%95%B8/" data-id="ckyfjbtiu000bz39kf78x0r6f" data-title="Rails 綠界參數" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Rails-super-起飛摟" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T17:06:46.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/">Rails-super-起飛摟</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>趁著還有想法的時候，趕快寫下來。<br>因為專案的關係，用到了<code>class_eval</code> and <code>super</code>。<br>相信大家對<code>super</code>不陌生，可能常看到吧。</p>
-<p><code>super</code>是什麼呢？<br><em>It[Super] calls a method on the parent class with the same name as the method that calls super.</em><br>它是當我們想要使用一個類別(class)中的特定方法，但又想保留它父層原有同名方法裡的內容。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    p <span class="string">"哈摟"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &lt; A</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">B.new.hi</span><br><span class="line"> =&gt; <span class="string">"哈摟"</span></span><br></pre></td></tr></table></figure>
-
-<p>A class裡面定義了一個<code>hi</code> method，B class繼承A class，同時B class裡面也定義了<code>hi</code>，在裡面用了super，當B class使用了<code>hi</code>方法時，也一併把B class裡的方法帶到父層A class裡的<code>hi</code> method裡執行。但上面的範例根本不用這樣做，因為既然是繼承了，它根本不用在定義一個同名方法，直接使用<code>B.new.hi</code>也會是一樣的結果。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    p <span class="string">"哈摟"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &lt; A</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    p <span class="string">"大家好"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">B.new.hi</span><br><span class="line">=&gt; </span><br><span class="line"><span class="string">"哈摟"</span></span><br><span class="line"><span class="string">"大家好"</span></span><br></pre></td></tr></table></figure>
-
-<p>雖然範例不是很好，但我這次在B class加了”大家好”，B class <code>hi</code> method，就把它帶到父層A class <code>hi</code> method一起執行了。</p>
-<p>那這次專案裡踩到的雷，是我們使用了<code>class_eval</code>這個method(可自行google or 我哪天會寫一篇)<br>我需要從原本的<code>index</code>繼續延伸下去，所以我以為在<code>class_eval</code>裡用<code>super</code>就能繼續在<code>index</code>寫下去。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xxxController.class_eval <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    <span class="comment">#以下我要執行得代碼</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>但會噴<br><em>NoMethodError (super: no superclass method <code>index</code>)</em></p>
-<p>因為這時<code>xxxController.class_eval</code>就是它自己，所以在延伸<code>index</code>時沒有super可用(除非它的父層有<code>index</code>)。<br>我用<code>ancestors</code>來看看這個<code>controller</code>的祖先們是誰，看到以下這些，感覺就沒有繼承<code>index</code>難怪會錯。<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Spree::BaseController,</span><br><span class="line">Spree::ViewContext,</span><br><span class="line">ActionController::Base,</span><br><span class="line">Devise::OmniAuth::UrlHelpers,</span><br><span class="line">Devise::Controllers::UrlHelpers,</span><br><span class="line">Devise::Controllers::Helpers,</span><br><span class="line">Devise::Controllers::StoreLocation,</span><br><span class="line">Devise::Controllers::SignInOut,</span><br><span class="line">Turbolinks::Redirection,</span><br><span class="line">Turbolinks::Controller,</span><br><span class="line">Rollbar::Rails::ControllerMethods,</span><br><span class="line">Rollbar::RequestDataExtractor,</span><br><span class="line">ActiveRecord::Railties::ControllerRuntime,</span><br><span class="line">ActionDispatch::Routing::RouteSet::MountedHelpers,</span><br><span class="line">VersionCake::ControllerAdditions,</span><br><span class="line">ActionController::RespondWith,</span><br><span class="line">CanCan::ControllerAdditions,</span><br><span class="line">ActionController::ParamsWrapper,</span><br><span class="line">ActionController::Instrumentation,</span><br><span class="line">ActionController::Rescue</span><br></pre></td></tr></table></figure>
-
-<p>這時就可以用<code>concern module</code>來<code>include</code>。就可以嘍。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">Hello</span></span></span><br><span class="line">  extend ActiveSupport::Concern</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    respond_to <span class="keyword">do</span> <span class="params">|f|</span></span><br><span class="line">      f.html</span><br><span class="line">      f.xlsx <span class="keyword">do</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"></span><br><span class="line">---我是分隔線</span><br><span class="line"></span><br><span class="line">xxxController.class_eval <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">include</span> Hello</span><br><span class="line">  ...</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<p>-W</p>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/" data-id="ckyfjbtiv000cz39k2bvvfnh5" data-title="Rails-super-起飛摟" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-單一表格繼承與多型關聯" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T17:05:56.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/">單一表格繼承與多型關聯</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="我要活下去"><a href="#我要活下去" class="headerlink" title="我要活下去!!!"></a><a href="#%E6%88%91%E8%A6%81%E6%B4%BB%E4%B8%8B%E5%8E%BB" title="我要活下去!!!"></a>我要活下去!!!</h1><p>以前不敢問問題，到現在看到什麼就想問，根本忘了先_查資料_，再發問。</p>
-<p>問問題前，應該先查資料，再把不了解的濃縮成人話(當然這很難！！！</p>
-<p><strong>難的地方不是發問，而是要很讓人聽懂。</strong></p>
-<p>以下是得到的解答，透過我的大腦，解析出的人話(？<br>或許不對，不清楚，再麻煩大家包涵或者直接幹瞧我喔^_&lt;</p>
-<h2 id="單一表格繼承STI-Single-table-inheritance"><a href="#單一表格繼承STI-Single-table-inheritance" class="headerlink" title="單一表格繼承STI(Single-table inheritance)"></a><a href="#%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BFSTI-Single-table-inheritance" title="單一表格繼承STI(Single-table inheritance)"></a>單一表格繼承STI(Single-table inheritance)</h2><p><strong>如何將物件導向中的繼承概念，對應到關聯式資料庫的設計，是個大哉問。Rails內建了其中最簡單的一個解法，只用一個資料表儲存繼承體系中的物件，搭配一個<code>type</code>欄位用來指名這筆資料的類別名稱。要開啟STI功能，依照慣例只要有一個欄位叫做<code>type</code>，型態字串即可</strong></p>
-<p>比方說：我有一個 <code>Animal Model</code>，為了要有繼承功能，我們新增 <code>type</code>這個欄位。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span>
-<span class="line">  create_table <span class="symbol">:animals</span> <span class="keyword">do</span> <span class="params">|t|</span></span>
-<span class="line">    t.string <span class="symbol">:name</span></span>
-<span class="line">    t.string <span class="symbol">:type</span></span>
-<span class="line">    t.timestamps <span class="symbol">null:</span> <span class="literal">false</span></span>
-<span class="line">  <span class="keyword">end</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>那要被繼承的 Dog、Cat兩個 Model就不用在建立表格欄位了。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> &lt; ActiveRecord::Base</span></span>
-<span class="line"><span class="keyword">end</span></span>
-<span class="line"></span>
-<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> &lt; Animal</span></span>
-<span class="line"><span class="keyword">end</span></span>
-<span class="line"></span>
-<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> &lt; Animal</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>這時候他們都繼承了Animal這個爸爸，爸爸有什麼，他們就有什麼了。<br>但缺點就是，爸爸有的，你不一定需要，但你還是得擁有那些欄位。<br>如果要關閉的話就在爸爸身上加上 <code>self.abstract_class = true</code></p>
-<h2 id="多型關聯-Polymorphic-Associations"><a href="#多型關聯-Polymorphic-Associations" class="headerlink" title="多型關聯(Polymorphic Associations)"></a><a href="#%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF-Polymorphic-Associations" title="多型關聯(Polymorphic Associations)"></a>多型關聯(Polymorphic Associations)</h2><p><strong>多型關連(Polymorphic Associations)可以讓一個 Model 不一定關連到某一個特定的 Model，秘訣在於除了整數的_id外部鍵之外，再加一個字串的_type欄位說明是哪一種Model。</strong></p>
-<p>多型關聯，當你有某種事情需求，已經有Model在做那件事情時。<br>我在其他Model，也想使用到那件事情時，我就不用在另外建立Model，來做一樣的事情了。</p>
-<p><em>以上想用自己的話表達簡單一點，但覺得太攏統，太模糊了</em></p>
-<p><em>以下引用文件</em></p>
-<p>例如一個Comment model，我們可以透過多型關連讓它belongs_to到各種不同的 Model上，假設我們已經有了Article與Photo這兩個Model，然後我們希望這兩個Model都可以被留言。不用多型關連的話，你得分別建立ArticleComment和PhotoComment的model。用多型關連的話，無論有多少種需要被留言的Model，只需要一個Comment model即可：</p>
-<p><code>rails g model comment content:text commentable_id:integer commentable_type</code></p>
-<p>產生出</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateComments</span> &lt; ActiveRecord::Migration[5.1]</span></span>
-<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span>
-<span class="line">    create_table <span class="symbol">:comments</span> <span class="keyword">do</span> <span class="params">|t|</span></span>
-<span class="line">      t.text <span class="symbol">:content</span></span>
-<span class="line">      t.integer <span class="symbol">:commentable_id</span></span>
-<span class="line">      t.string <span class="symbol">:commentable_type</span></span>
-<span class="line"></span>
-<span class="line">      t.timestamps</span>
-<span class="line">    <span class="keyword">end</span></span>
-<span class="line">  <span class="keyword">end</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>這個Migration檔案中，我們用content這個欄位來儲存留言的內容，commentable_id用來儲存被留言的物件的id而commentable_type則用來儲存被留言物件的種類，以這個例子來說被留言的對象就是Article與Photo這兩種Model，這個Migration檔案也可以改寫成下面這樣：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateComments</span> &lt; ActiveRecord::Migration[5.1]</span></span>
-<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span>
-<span class="line">    create_table <span class="symbol">:comments</span> <span class="keyword">do</span> <span class="params">|t|</span></span>
-<span class="line">      t.text <span class="symbol">:content</span></span>
-<span class="line">      t.belongs_to <span class="symbol">:commentable</span>, <span class="symbol">:polymorphic</span> =&gt; <span class="literal">true</span></span>
-<span class="line">      <span class="comment">#同時會幫你產生出[:commentable_id, :commentable_type]</span></span>
-<span class="line"></span>
-<span class="line">      t.timestamps</span>
-<span class="line">    <span class="keyword">end</span></span>
-<span class="line">  <span class="keyword">end</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>這時就必須指定關聯</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-<span class="line">14</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span> &lt; ApplicationRecord</span></span>
-<span class="line">  belongs_to <span class="symbol">:commentable</span>, <span class="symbol">:polymorphic</span> =&gt; <span class="literal">true</span></span>
-<span class="line">                          <span class="comment">#透過true來將此關聯指定是多型關聯</span></span>
-<span class="line"><span class="keyword">end</span></span>
-<span class="line"></span>
-<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span> &lt; ApplicationRecord</span></span>
-<span class="line">  has_many <span class="symbol">:comments</span>, <span class="symbol">:as</span> =&gt; <span class="symbol">:commentable</span></span>
-<span class="line">                      <span class="comment">#我們用:as來指定 :commentable這個參數作為多型關聯的接口</span></span>
-<span class="line">                      <span class="comment">#:as是什麼？可以看has_one or has_many API</span></span>
-<span class="line"><span class="keyword">end</span></span>
-<span class="line"></span>
-<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Photo</span> &lt; ApplicationRecord</span></span>
-<span class="line">  has_many <span class="symbol">:comments</span>, <span class="symbol">:as</span> =&gt; <span class="symbol">:commentable</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>接下來可以透過關聯來新增留言</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-</pre></td><td class="code"><pre><span class="line">article &#x3D; Article.first</span>
-<span class="line"></span>
-<span class="line">#透過關連新增留言</span>
-<span class="line">comment &#x3D; article.comments.create(:content &#x3D;&gt; &quot;First Comment&quot;)</span>
-<span class="line"></span>
-<span class="line">#你可以發現 Rails 很聰明的幫我們指定了被留言物件的種類和id</span>
-<span class="line">comment.commentable_type &#x3D;&gt; &quot;Article&quot;</span>
-<span class="line">comment.commentable_id &#x3D;&gt; 1</span>
-<span class="line"></span>
-<span class="line">#也可以透過 commentable 反向回查關連的物件</span>
-<span class="line">comment.commentable &#x3D;&gt; #&lt;Article id: 1, ....&gt;</span>
-</pre></td></tr></table></figure>
-
-<p>簡單來說，我有一個留言的model了，我在文章與照片都想要可以留言，既然已經有model在做這件事了，<br>我們就使用多型關聯來連到那裡去。就不用說還需要再另外建立什麼了。</p>
-<p>文章引用參考至：<br><a target="_blank" rel="noopener" href="https://ihower.tw/rails/activerecord-relationships.html">https://ihower.tw/rails/activerecord-relationships.html</a><br><a target="_blank" rel="noopener" href="https://ihower.tw/rails/activerecord-others.html">https://ihower.tw/rails/activerecord-others.html</a></p>
-<p>-W</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/" data-id="ckyfjbtiv000dz39kfft76hip" data-title="單一表格繼承與多型關聯" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-類別是什麼？物件是什麼？" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/%E9%A1%9E%E5%88%A5%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E7%89%A9%E4%BB%B6%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T17:05:12.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/%E9%A1%9E%E5%88%A5%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E7%89%A9%E4%BB%B6%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/">類別是什麼？物件是什麼？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>既然是物件導向程式設計，那物件是什麼？<br>其實我覺得應該先搞懂這個。<br>趁著清明連假，先了解一些基礎，不然很多基礎搞不懂，根本只是個會寫code的人，因為我不懂它運作的原理。</p>
-<p>類別：一張設計圖，藍圖，可以參考的文件，沒有實體的存在。<br><em>但在Ruby的世界裡，類別也是一個物件。</em><br>物件：看得到、摸得到的實體，屬於動態，但狀態隨時會改變。</p>
-<p>在Ruby裡如何定義一個類別呢？</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span>
-<span class="line">  <span class="comment">#...</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>這樣我們就定義了Cat 這個class(類別)<br>當然裡面可以定義很多methods(方法)</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span>
-<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(food)</span></span></span>
-<span class="line">    puts <span class="string">"<span class="subst">#&#123;food&#125;</span> 好好吃！"</span></span>
-<span class="line">  <span class="keyword">end</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>我們先定義一個 <code>eat</code> 這個方法。<br>接下來用 <code>new</code>方法來把 Cat類別創造出新的物件。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">willy = Cat.new</span>
-<span class="line">willy.eat(<span class="string">"罐頭"</span>) =&gt; 印出 [罐頭 好好吃!]</span>
-</pre></td></tr></table></figure>
-
-<p>簡單來說，為什麼說類別是一張設計圖？<br>比方要蓋一棟房子，首先需要一張設計圖(類別)<br>那你要透過<code>new</code>出設計圖的房子(物件)<br>透過這樣簡單的的比喻，就可以把類別與物件分得比較清楚。</p>
-<p>可能比喻的不是很好，再麻煩大家給我一些指教。</p>
-<p>-W</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/%E9%A1%9E%E5%88%A5%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E7%89%A9%E4%BB%B6%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/" data-id="ckyfjbtj3000jz39k9ioreuup" data-title="類別是什麼？物件是什麼？" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Ruby裡的字串與符號-Symbol" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/Ruby%E8%A3%A1%E7%9A%84%E5%AD%97%E4%B8%B2%E8%88%87%E7%AC%A6%E8%99%9F-Symbol/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T17:04:08.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/Ruby%E8%A3%A1%E7%9A%84%E5%AD%97%E4%B8%B2%E8%88%87%E7%AC%A6%E8%99%9F-Symbol/">Ruby裡的字串與符號-Symbol</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>淺談在Ruby裡的字串與符號，首先我們先看看字串的樣字</p>
-<p>字串物件的組合是由<br><img src="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png"><br>一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。</p>
-<p>再來看看 Symbol<br><img src="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png"><br>一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。</p>
-<p>那字串與符號的不同呢？</p>
-<p>字串是可以更改內容的，而符號_(Symbol)_是不能的!!! (以下就直接通稱符號</p>
-<p>因為這時候符號已經變成了有名字的字串了。</p>
-<p>就像你的名字可以更改嗎？好啦其實可以，去戶政事務所。</p>
-<p>舉例看看：好比今天棒球的本壘板，它已經定義叫做本壘板了，不可能更改叫一壘或二壘吧。</p>
-<p>我們也可以用.class來看這時候變數是什麼個物件類別。<br><img src="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png"><br><img src="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png"><br>符號類別字串物件類別可以看得出來他們的類別不一樣吧 😃</p>
-<p>當然它們也有別的不同之處，物件的ID位置(身分證字號)，我們可以用</p>
-<p>.object_id 來查詢它們所在的ID位置。<br><img src="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png"><br>有看到右邊一串一串的亂碼嗎？那就是willy這個字串的ID位置，每次輸入每次的位置不同，因為每次查詢都會在建立一個新字串，才會有不同的ID位置。<br><img src="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png"><br>但符號的ID位置是不會改變的，因為ID位置如果相同的話，表示它們都是同一個物件，這樣下次需要這個符號時，記憶體就不用在新增一份，直接從記憶體取出，相對的符號也較省記憶體空間。</p>
-<p>字串及 符號(Symbol) 類別都有提供一些方法可以互相轉換，</p>
-<p>我們可以用:</p>
-<p>字串轉符號使用:to_sym</p>
-<p>符號轉字串使用:to_s</p>
-<p>那我們的使用時機呢？可以用在Hash裡的key:</p>
-<p>因為它能更快的被找到。</p>
-<p>總結：</p>
-<p>字串與符號同樣是一個物件，但類別不同，使用方法也不同。</p>
-<p>但我覺得符號的用途比較像是更明確的表現物件給人的意思，</p>
-<p>因為它的內容是不可以改變的！！！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/Ruby%E8%A3%A1%E7%9A%84%E5%AD%97%E4%B8%B2%E8%88%87%E7%AC%A6%E8%99%9F-Symbol/" data-id="ckyfjbtit000az39kadh2hlkj" data-title="Ruby裡的字串與符號-Symbol" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Rails-追code-小技巧" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T17:02:24.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/">Rails-追code-小技巧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>是不是有時候覺得，幹這方法到底在哪裡？到底是幹嘛的？然後這個object到底有哪些方法可以用？滿頭問好？？？本人正是如此</p>
-<p>今天假設我們有一個 Cat class，裡面有兩個methods，當然可能更多。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span>
-<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span>
-<span class="line">  <span class="keyword">end</span></span>
-<span class="line">  </span>
-<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span></span></span>
-<span class="line">  <span class="keyword">end</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>那我們可以用 Cat.new.methods，在consolo裡面查這個class裡，到底有哪些方法</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">Cat.new.methods</span>
-<span class="line"> =&gt; [<span class="symbol">:run</span>, <span class="symbol">:eat</span>, <span class="symbol">:instance_variable_set</span>, <span class="symbol">:instance_variable_defined?</span>, <span class="symbol">:remove_instance_variable</span>, <span class="symbol">:instance_of?</span>, <span class="symbol">:kind_of?</span>, <span class="symbol">:is_a?</span>, <span class="symbol">:tap</span>, <span class="symbol">:instance_variable_get</span>, <span class="symbol">:public_methods</span>, <span class="symbol">:instance_variables</span>, <span class="symbol">:method</span>, <span class="symbol">:public_method</span>, <span class="symbol">:define_singleton_method</span>, <span class="symbol">:public_send</span>, <span class="symbol">:singleton_method</span>, <span class="symbol">:extend</span>, <span class="symbol">:pp</span>, <span class="symbol">:to_enum</span>, <span class="symbol">:enum_for</span>, <span class="symbol">:&lt;=&gt;</span>, <span class="symbol">:===</span>, <span class="symbol">:=~</span>, <span class="symbol">:</span>!~, <span class="symbol">:eql?</span>, <span class="symbol">:respond_to?</span>, <span class="symbol">:freeze</span>, <span class="symbol">:inspect</span>, <span class="symbol">:object_id</span>, <span class="symbol">:send</span>, <span class="symbol">:to_s</span>, <span class="symbol">:display</span>, <span class="symbol">:nil?</span>, <span class="symbol">:hash</span>, <span class="symbol">:class</span>, <span class="symbol">:singleton_class</span>, <span class="symbol">:clone</span>, <span class="symbol">:itself</span>, <span class="symbol">:dup</span>, <span class="symbol">:taint</span>, <span class="symbol">:yield_self</span>, <span class="symbol">:untaint</span>, <span class="symbol">:tainted?</span>, <span class="symbol">:untrusted?</span>, <span class="symbol">:untrust</span>, <span class="symbol">:frozen?</span>, <span class="symbol">:trust</span>, <span class="symbol">:methods</span>, <span class="symbol">:singleton_methods</span>, <span class="symbol">:protected_methods</span>, <span class="symbol">:private_methods</span>, <span class="symbol">:</span>!, <span class="symbol">:equal?</span>, <span class="symbol">:instance_eval</span>, <span class="symbol">:==</span>, <span class="symbol">:instance_exec</span>, <span class="symbol">:</span>!=, <span class="symbol">:__id__</span>, <span class="symbol">:__send__</span>]</span>
-</pre></td></tr></table></figure>
-
-<p>有看到前面兩個method嗎？是我們自己定義的method，也看到了這個calss繼承的所有的method。</p>
-<p>那我只想看只定義在這個calss裡的method呢？</p>
-<p>可以用 Cat.new.methods - Object.new.methods</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">Cat.new.methods - Object.new.methods</span>
-</pre></td></tr></table></figure>
-
-<p>那有些幫你做好的method，它的原始碼在哪裡？想看它是怎麼做的</p>
-<p>這時候我們就可以用Rails 的小技巧</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-</pre></td><td class="code"><pre><span class="line">cat = Cat.new </span>
-<span class="line"></span>
-<span class="line">cat.method(<span class="symbol">:run</span>)</span>
-<span class="line"><span class="comment"># =&gt; #&lt;Method: cat#run&gt;</span></span>
-<span class="line"></span>
-<span class="line">cat.method(<span class="symbol">:run</span>).source_location</span>
-<span class="line"><span class="comment"># =&gt; ["cat.rb", 1]</span></span>
-</pre></td></tr></table></figure>
-
-<p>這樣追，一直追追追，追到天涯海角吧～～～</p>
-<p><a target="_blank" rel="noopener" href="https://www.spreered.com/learn-rail-by-ruby/">https://www.spreered.com/learn-rail-by-ruby/</a><br>本篇參考以上文章</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/" data-id="ckyfjbtis0006z39k8r8v7j19" data-title="Rails-追code-小技巧" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Heroku-Application-error解決" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/Heroku-Application-error%E8%A7%A3%E6%B1%BA/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T17:01:11.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/Heroku-Application-error%E8%A7%A3%E6%B1%BA/">Heroku-Application-error解決</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png"><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
-<p>於是就透過 <code>heroku logs - tail</code> 這段指令，看到了以下畫面</p>
-<p><img src="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png"></p>
-<p>他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。</p>
-<p><code>web: bin/rails server -p 3000</code></p>
-<p>改成</p>
-<p><code>web: bin/rails server -p $PORT</code></p>
-<p>可能是因為Heroku不能指定PROT的關係。</p>
-<p>如果你的問題也跟我一樣，可以嘗試看看這個方法。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/Heroku-Application-error%E8%A7%A3%E6%B1%BA/" data-id="ckyfjbtiq0003z39kdkqm9p1e" data-title="Heroku-Application-error解決" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Git-是什麼" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/Git-%E6%98%AF%E4%BB%80%E9%BA%BC/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T16:59:50.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/Git-%E6%98%AF%E4%BB%80%E9%BA%BC/">Git 是什麼</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>git是什麼？版本控制？對於第一次聽到的我，版本控制是啥？</p>
-<p>沒錯，就是這樣，版本控制我連語意都不懂，但其實用來很方便也不簡單(誤</p>
-<p>應該說要用的很熟透，真的必須練習加上實作。</p>
-<p>那它到底是什麼呢？其實可以把它想成玩遊戲在存檔，把你的文件存檔，然後推到GitHub(Git跟GitHub不一樣)，你應該可以想像，當<br>你要改檔案，但又怕改下去爆掉，是不是都會拷貝一份，當你爆了在拷貝一份就好了，很方便對吧，當你回過神時，你已經拷貝了20份了。</p>
-<p>這時候Git的好處就來了，你存檔了，push上去了，改壞了，在clone下來就好了，而且每次修改的紀錄，都會被存進去，可以看出來這<br>段code跟上段哪裡有不一樣。</p>
-<p>難嗎？只要會add , commit , push 就好了啊，但當你想合併分支，刪除分支 ，這些指令也是必須記一下的。<br><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20181205192850247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzMTQxNjA=,size_16,color_FFFFFF,t_70"><br>上面的說明，很清楚，用講的用背的，不如實際操作看看。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/Git-%E6%98%AF%E4%BB%80%E9%BA%BC/" data-id="ckyfjbtin0001z39k1pn67odn" data-title="Git 是什麼" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-搭起來啦啦啦" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/05/07/%E6%90%AD%E8%B5%B7%E4%BE%86%E5%95%A6%E5%95%A6%E5%95%A6/" class="article-date">
-  <time class="dt-published" datetime="2020-05-06T16:55:39.000Z" itemprop="datePublished">2020-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/05/07/%E6%90%AD%E8%B5%B7%E4%BE%86%E5%95%A6%E5%95%A6%E5%95%A6/">搭起來啦啦啦</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>趁著清明連假，又加上剛好疫情的關係，沒有去掃墓。</p>
-<p><em>又加上現在人家說去掃墓，只是更早跟墓裡的團員。</em></p>
-<p>所以趕快搭起來，不然我的電腦裡有好幾個blog檔案，根本都跟新的一樣ＸＤ</p>
-<p>這次用Hexo來搭配GitHub Pages，雖然在裝Hexo的時候花了一些時間，</p>
-<p>因為Hexo的檔案位置不對，所以不管怎樣我下 <code>hexo init</code></p>
-<p>都得到 <code>zsh: command not found: hexo</code></p>
-<p>最後解決辦法是</p>
-<p>#刪除安裝<br><code>yarn global remove hexo-cli</code><br>#重新安裝<br><code>yarn global add hexo-cli --prefix /usr/local</code></p>
-<p>之後再執行 hexo 就有了。</p>
-<p>一直都很想搭部落格起來，加上開始工作的原因(根本不是藉口)<br>遲遲還沒動手，但發上實在有太多需要寫下來的。</p>
-<p>畢竟能用別人看得懂的話說明出來，都是經過腦子思考的，<br>雖然問問題很難，但我依舊持續學習中啦啦啦啦啦</p>
-<p>-W</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willychang.com/2020/05/07/%E6%90%AD%E8%B5%B7%E4%BE%86%E5%95%A6%E5%95%A6%E5%95%A6/" data-id="ckyfjbtiw000gz39kcuo5dojv" data-title="搭起來啦啦啦" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/11/02/Rails-sidekiq-%E6%8C%87%E5%AE%9A-vm/">Rails sidekiq 指定 vm</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/11/ActiveRecord-Store/">ActiveRecord::Store</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/15/2021-%E6%9C%9F%E6%9C%9B%E8%88%87-2020-%E5%9B%9E%E9%A1%A7/">2021 期望與 2020 回顧</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/01/Rails-hotwire/">Rails hotwire</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/05/Ruby-on-Rails-Rspec-use-webmock-gem/">Ruby on Rails, Rspec use webmock gem</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 Willy Chang<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
+
 </html>
